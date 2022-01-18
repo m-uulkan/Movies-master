@@ -1,6 +1,15 @@
 package com.company;
 
+import lombok.Setter;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+@Setter
 
 public class Movies {
 
@@ -10,7 +19,7 @@ public class Movies {
     private Director director;
     private List<Cast> cast;
 
-    void printCast() {
+   public  void printCast() {
         int counter = 1;
         for (Cast s : cast) {
             System.out.printf("%s)   Fullname: %s\n", counter, s.getFullName());
@@ -24,19 +33,38 @@ public class Movies {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getYear() {
-        return year;
+        return this.year;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public Director getDirector() {
         return director;
     }
 
+    @Override
+    public String toString() {
+        return "Movies{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", description='" + description + '\'' +
+                ", director=" + director +
+                ", cast=" + cast +
+                '}';
+    }
 }
+
+
+
+
+
